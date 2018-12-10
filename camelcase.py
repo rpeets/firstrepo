@@ -2,7 +2,6 @@
 # https://www.codewars.com/kata/camelcase-method/train/python
 #
 
-
 def camel_case(string):
     return ''.join([i for i in string.title() if i.isalpha()])
 
