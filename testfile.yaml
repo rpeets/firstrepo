@@ -1,7 +1,7 @@
 # https://jsonformatter.org/yaml-validator
 name: lif-config
 version: 1.0.0
-maintainer: robinpeter@xilinx.com
+maintainer: robinpeter@example.com
 lastModified: 09/17/2019
 modifiedBy: robinp
 cluster:
