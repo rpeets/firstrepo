@@ -1,0 +1,61 @@
+# https://jsonformatter.org/yaml-validator
+name: lif-config
+version: 1.0.0
+maintainer: robinpeter@xilinx.com
+lastModified: 09/17/2019
+modifiedBy: robinp
+cluster:
+  - clusterName: xsj-dcstdot
+    vserver:
+    - vserverName: xsj-dvst2ns01
+      networkInterface:
+        - interfaceName: corp01
+          ipAddress: 10.10.10.11
+          netmask: 255.255.255.0
+          gateway: 10.10.10.1
+          protocol: nfs
+          home-node: xsj-dcstdot-01
+        - interfaceName: corp02
+          ipAddress: 10.10.10.12
+          netmask: 255.255.255.0
+          gateway: 10.10.10.1
+          protocol: nfs
+          home-node: xsj-dcstdot-01
+    - vserverName: xsj-dvst2ns02
+      networkInterface:
+        - interfaceName: corp01
+          ipAddress: 10.10.10.21
+          netmask: 255.255.255.0
+          gateway: 10.10.10.1
+          protocol: nfs
+          home-node: xsj-dcstdot-02
+  - clusterName: xsj-pcstdot
+    vserver:
+    - vserverName: xsj-pvst2ns01
+      networkInterface:
+        - interfaceName: corp01
+          ipAddress: 10.10.10.31
+          netmask: 255.255.255.0
+          gateway: 10.10.10.1
+          protocol: nfs
+          home-node: xsj-pcstdot-01
+        - interfaceName: corp02
+          ipAddress: 10.10.10.32
+          netmask: 255.255.255.0
+          gateway: 10.10.10.1
+          protocol: nfs
+          home-node: xsj-pcstdot-02
+    - vserverName: xsj-pvst2ns02
+      networkInterface:
+        - interfaceName: corp01
+          ipAddress: 10.10.10.41
+          netmask: 255.255.255.0
+          gateway: 10.10.10.1
+          protocol: nfs
+          home-node: xsj-pcstdot-01
+        - interfaceName: corp02
+          ipAddress: 10.10.10.42
+          netmask: 255.255.255.0
+          gateway: 10.10.10.1
+          protocol: nfs
+          home-node: xsj-pcstdot-02
