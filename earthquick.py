@@ -30,7 +30,8 @@ def main():
     #print(newlist)
     for i in newlist:
         s = Struct(**i['properties'])
-        if ', CA' in s.place :
+        #if ', CA' in s.place :
+        if s.place.endswith(', CA') and s.type == 'earthquake':
             quaketime = time.strftime('%Y-%m-%dT%H:%M:%S+00:00',\
                 time.localtime(float(s.time)/1000))
             print(quaketime,'|',s.place,'| Magnitude:',s.mag)
