@@ -27,7 +27,6 @@ Game rules:
 3. When both parties say "stop" it is time to compare the total sums.
     Whoever has the greater sum wins the game
 
-Email: eyuwang@apple.com
 """
 
 import sys
