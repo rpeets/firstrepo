@@ -71,8 +71,9 @@ def main():
             htower.disk_move(scr, dst)
         else:
             print('You Won!!!')
-            answer = input("Do you like to pay again Y/N ?")
+            answer = input("Do you like to try again Y/N ?")
             if answer.lower().startswith('y'):
+                htower = Honai()
                 continue
             elif answer.lower().startswith('n'):
                 break
