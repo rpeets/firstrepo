@@ -12,29 +12,18 @@ to t3, obeying the following simple rules:
 
 class Honai():
     def __init__(self):
-        self.tower1 = [4, 3, 2, 1]
-        self.tower2 = []
-        self.tower3 = []
+        self.towera = [4, 3, 2, 1]
+        self.towerb = []
+        self.towerc = []
         self.result = [4, 3, 2, 1]
+        self.count = 0
 
-    def disk_move(self, s, d):
-        if s == 't1':
-            source = self.tower1
-        elif s == 't2':
-            source = self.tower2
-        elif s == 't3':
-            source = self.tower3
-
-        if d == 't1':
-            dest = self.tower1
-        elif d == 't2':
-            dest = self.tower2
-        elif d == 't3':
-            dest = self.tower3
-        
-        if len(source) > 0 and s != d and self.valid_move(source, dest) == True:
-            disk = source.pop()
-            dest.append(disk)
+    def disk_move(self, scr, dst):        
+        if len(scr) > 0 and scr != dst and \
+            self.valid_move(scr, dst) == True:
+            disk = scr.pop()
+            dst.append(disk)
+            self.count += 1
         else:
             print("Invalid Move!!!")
     
@@ -52,25 +41,45 @@ class Honai():
             
     def __str__(self):
         print()
-        print('t1 :',self.tower1)
-        print('t2 :',self.tower2)
-        print('t3 :',self.tower3)
+        print('A :',self.towera)
+        print('B :',self.towerb)
+        print('C :',self.towerc)
         return ''
     
     def check_win(self):
-        return self.tower3 == self.result
+        return self.towerc == self.result
     
 
 def main():
     htower = Honai()
+    tower_name = ['a', 'b', 'c']
     while True:
         if htower.check_win() is False:
             print(htower)
-            scr = input('Move From : ')
-            dst = input('Move To   : ')
-            htower.disk_move(scr, dst)
+            scr = input('Move From : ').lower()
+            dst = input('Move To   : ').lower()
+
+            if scr in tower_name and dst in tower_name:
+                if scr == 'a':
+                    scr = htower.towera
+                elif scr == 'b':
+                    scr = htower.towerb
+                elif scr == 'c':
+                    scr = htower.towerc
+
+                if dst == 'a':
+                    dst = htower.towera
+                elif dst == 'b':
+                    dst = htower.towerb
+                elif dst == 'c':
+                    dst = htower.towerc
+
+                htower.disk_move(scr, dst)
+            else:
+                print("Invalid Input!!!")
         else:
-            print('You Won!!!')
+            print('Awesome, You have completed in {} move!!!' \
+                        .format(htower.count))
             answer = input("Do you like to try again Y/N ?")
             if answer.lower().startswith('y'):
                 htower = Honai()
