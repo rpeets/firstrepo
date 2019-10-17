@@ -10,12 +10,12 @@ to t3, obeying the following simple rules:
     3, No larger disk may be placed on top of a smaller disk.
 """
 
-class Honai():
+class Honoi():
     def __init__(self):
-        self.towera = [4, 3, 2, 1]
+        self.towera = [5, 4, 3, 2, 1]
         self.towerb = []
         self.towerc = []
-        self.result = [4, 3, 2, 1]
+        self.result = [5, 4, 3, 2, 1]
         self.count = 0
 
     def disk_move(self, scr, dst):        
@@ -51,7 +51,7 @@ class Honai():
     
 
 def main():
-    htower = Honai()
+    htower = Honoi()
     tower_name = ['a', 'b', 'c']
     while True:
         if htower.check_win() is False:
@@ -82,10 +82,14 @@ def main():
                         .format(htower.count))
             answer = input("Do you like to try again Y/N ?")
             if answer.lower().startswith('y'):
-                htower = Honai()
+                htower = Honoi()
                 continue
             elif answer.lower().startswith('n'):
                 break
 
+
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        exit(0)
